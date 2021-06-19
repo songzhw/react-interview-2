@@ -28,8 +28,8 @@ export const MusicListScreen = () => {
         <div key={`${item.title}-${index}`} onClick={selectItem} data-item={item.id}>
 
           {item.isPlaying ?
-            <img className="playIcon" src={require("./ic_play.png")} alt="" />
-            : <img className="playIcon" src={require("./ic_music.png")} alt="" />
+            <img className="playIcon" src={require("./res/ic_play.png")} alt="" />
+            : <img className="playIcon" src={require("./res/ic_music.png")} alt="" />
           }
 
           <span className="song">{item.title}</span>

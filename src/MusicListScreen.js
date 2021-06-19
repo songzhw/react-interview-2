@@ -12,7 +12,8 @@ export const MusicListScreen = () => {
   const selectItem = (ev) => {
     const id = parseInt(ev.currentTarget.dataset.item, 10);
     const songs = data.map(item => {
-      item.isPlaying = item.id === id;
+      const isThisItem = item.id === id;
+      item.isPlaying = isThisItem ? !item.isPlaying : false;
       return item;
     });
     setData(songs);
@@ -26,12 +27,7 @@ export const MusicListScreen = () => {
     <div>
       {data.map((item, index) => (
         <div key={`${item.title}-${index}`} onClick={selectItem} data-item={item.id}>
-
-          {item.isPlaying ?
-            <img className="playIcon" src={require("./res/ic_play.png")} alt="" />
-            : <img className="playIcon" src={require("./res/ic_music.png")} alt="" />
-          }
-
+          <span className="playIcon"> {item.isPlaying ? "️️⏸" : "▶️"}</span>
           <span className="song">{item.title}</span>
         </div>
       ))}
